@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas do documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brié Cookies | Cookies Artesanais</title>
+
+    <!-- Ícone da aba do navegador, chamado favicon -->
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="shortcut icon" type="image/png" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+
+    <!-- Framework W3.CSS via CDN -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Font Awesome via CDN para ícones das redes sociais e menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS interno para personalização visual do projeto -->
+    <style>
+        /* 
+            Paleta principal:
+            Marrom: conforto, chocolate e confiança.
+            Creme: delicadeza e acolhimento.
+            Caramelo: sabor artesanal e destaque.
+            Branco: organização e limpeza visual.
+        */
+
+        :root {
+            --marrom-escuro: #4a2c1a;
+            --marrom-medio: #7b4a2d;
+            --creme: #fff6e8;
+            --bege: #f3ddbd;
+            --caramelo: #c9863a;
+            --dourado-suave: #e7b866;
+            --branco: #ffffff;
+            --texto: #3a2a20;
+            --sombra-suave: 0 8px 24px rgba(74, 44, 26, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: var(--creme);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* Link de acessibilidade para pular diretamente ao conteúdo */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: 8px;
+            background-color: var(--marrom-escuro);
+            color: var(--branco);
+            padding: 8px 12px;
+            border-radius: 8px;
+            z-index: 9999;
+        }
+
+        .skip-link:focus {
+            left: 12px;
+        }
+
+        /* Sidebar lateral fixa */
+        .sidebar {
+            width: 120px;
+            background: linear-gradient(180deg, var(--marrom-escuro), var(--marrom-medio));
+            color: var(--branco);
+            box-shadow: 4px 0 18px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .sidebar .logo-sidebar {
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--dourado-suave);
+            margin: 18px auto 8px;
+            display: block;
+            background-color: var(--creme);
+        }
+
+        .sidebar-title {
+            font-size: 0.78rem;
+            text-align: center;
+            padding: 0 8px 14px;
+            color: var(--bege);
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            color: var(--branco);
+            text-align: center;
+            padding: 14px 6px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            transition: 0.3s ease;
+        }
+
+        .sidebar a i {
+            display: block;
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a:focus {
+            background-color: var(--caramelo);
+            color: var(--branco);
+            outline: none;
+        }
+
+        /* Botão do menu em telas pequenas */
+        .mobile-menu-button {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 30;
+            background-color: var(--marrom-escuro);
+            color: var(--branco);
+            border-radius: 12px;
+            box-shadow: var(--sombra-suave);
+        }
+
+        #mobileSidebar {
+            display: none;
+            width: 230px;
+            background-color: var(--marrom-escuro);
+            color: var(--branco);
+            z-index: 40;
+        }
+
+        #mobileSidebar a {
+            color: var(--branco);
+            transition: 0.3s;
+        }
+
+        #mobileSidebar a:hover {
+            background-color: var(--caramelo);
+        }
+
+        /* Área principal deslocada por causa da sidebar */
+        .page-content {
+            margin-left: 120px;
+        }
+
+        /* Seções gerais da OnePage */
+        .section-page {
+            min-height: 100vh;
+            padding: 48px 32px;
+        }
+
+        .section-light {
+            background-color: var(--creme);
+        }
+
+        .section-white {
+            background-color: var(--branco);
+        }
+
+        .section-beige {
+            background-color: #f7ead7;
+        }
+
+        /* Cabeçalho das seções */
+        .section-header {
+            max-width: 1150px;
+            margin: 0 auto 32px;
+            padding: 28px;
+            border-radius: 26px;
+            background: linear-gradient(135deg, var(--marrom-escuro), var(--marrom-medio));
+            color: var(--branco);
+            box-shadow: var(--sombra-suave);
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .brand-logo {
+            width: 96px;
+            height: 96px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--dourado-suave);
+            background-color: var(--creme);
+        }
+
+        .brand-name {
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .brand-slogan {
+            font-size: 1.15rem;
+            color: var(--bege);
+            margin-top: 8px;
+        }
+
+        /* Hero da Home */
+        .hero-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .hero-card {
+            background-color: var(--branco);
+            padding: 34px;
+            border-radius: 26px;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .hero-card h2 {
+            color: var(--marrom-escuro);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-top: 0;
+            font-weight: 800;
+        }
+
+        .highlight-text {
+            color: var(--caramelo);
+            font-weight: 700;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: var(--sombra-suave);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.025);
+            box-shadow: 0 14px 34px rgba(74, 44, 26, 0.2);
+        }
+
+        .button-primary {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 13px 22px;
+            background-color: var(--caramelo);
+            color: var(--branco);
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .button-primary:hover,
+        .button-primary:focus {
+            background-color: var(--marrom-escuro);
+            transform: translateY(-2px);
+            color: var(--branco);
+            outline: none;
+        }
+
+        /* Títulos internos */
+        .content-container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            color: var(--marrom-escuro);
+            font-size: clamp(1.7rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            max-width: 760px;
+            color: #654735;
+            margin-bottom: 28px;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .custom-card {
+            background-color: var(--branco);
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: var(--sombra-suave);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 30px rgba(74, 44, 26, 0.18);
+        }
+
+        .custom-card i {
+            color: var(--caramelo);
+            font-size: 2rem;
+            margin-bottom: 14px;
+        }
+
+        .custom-card h3 {
+            color: var(--marrom-escuro);
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        /* Seção Sobre */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .about-box {
+            background-color: var(--branco);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .values-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .values-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .values-list li::before {
+            content: "🍪";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Produtos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background-color: var(--branco);
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            transition: 0.35s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            color: var(--marrom-escuro);
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f2d5a8;
+            color: var(--marrom-escuro);
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* Parceiros */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .partner-logo {
+            width: 100%;
+            max-width: 150px;
+            height: 110px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 18px;
+            padding: 14px;
+            border-radius: 18px;
+            background-color: var(--creme);
+        }
+
+        /* FAQ com details/summary */
+        .faq-list {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background-color: var(--branco);
+            margin-bottom: 16px;
+            border-radius: 18px;
+            box-shadow: var(--sombra-suave);
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            padding: 20px 24px;
+            color: var(--marrom-escuro);
+            font-weight: 800;
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            float: right;
+            color: var(--caramelo);
+            font-size: 1.4rem;
+        }
+
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+
+        .faq-item p {
+            padding: 0 24px 22px;
+            margin: 0;
+            color: #5f4635;
+        }
+
+        /* Contato */
+        .contact-box {
+            background: linear-gradient(135deg, var(--marrom-escuro), var(--marrom-medio));
+            color: var(--branco);
+            border-radius: 28px;
+            padding: 34px;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .contact-box a {
+            color: var(--bege);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-box a:hover {
+            color: var(--dourado-suave);
+        }
+
+        /* Rodapé de cada seção solicitada */
+        .section-footer {
+            max-width: 1150px;
+            margin: 36px auto 0;
+            padding: 24px;
+            border-radius: 22px;
+            background-color: var(--marrom-escuro);
+            color: var(--branco);
+            box-shadow: var(--sombra-suave);
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            margin-left: 8px;
+            border-radius: 50%;
+            background-color: var(--caramelo);
+            color: var(--branco);
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .social-links a:hover,
+        .social-links a:focus {
+            background-color: var(--dourado-suave);
+            color: var(--marrom-escuro);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        /* Animação leve de entrada */
+        .fade-in {
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividade para tablets */
+        @media (max-width: 992px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid,
+            .partners-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Responsividade para celulares */
+        @media (max-width: 600px) {
+            .page-content {
+                margin-left: 0;
+            }
+
+            .section-page {
+                padding: 72px 18px 38px;
+            }
+
+            .section-header {
+                padding: 24px 18px;
+            }
+
+            .brand-area {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .brand-logo {
+                width: 84px;
+                height: 84px;
+            }
+
+            .hero-card,
+            .about-box,
+            .custom-card,
+            .contact-box {
+                padding: 22px;
+            }
+
+            .card-grid,
+            .product-grid,
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card img {
+                height: 210px;
+            }
+
+            .footer-grid {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .social-links a {
+                margin: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Link de acessibilidade para usuários que navegam pelo teclado -->
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Botão de menu exibido apenas em telas pequenas -->
+    <button class="w3-button mobile-menu-button w3-hide-large w3-hide-medium" onclick="openMobileSidebar()" aria-label="Abrir menu de navegação">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Sidebar lateral para desktop e tablet -->
+    <nav class="w3-sidebar w3-bar-block sidebar w3-hide-small" aria-label="Menu principal">
+        <!-- inserir.imagem.(voz de robô kkkk) -->
+        <img src="img/logo.png" alt="Logotipo da Brié Cookies" class="logo-sidebar">
+        <div class="sidebar-title">Brié Cookies</div>
+
+        <a href="#home" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-house"></i>
+            HOME
+        </a>
+
+        <a href="#sobre" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-cookie-bite"></i>
+            SOBRE
+        </a>
+
+        <a href="#produtos" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-basket-shopping"></i>
+            PRODUTOS
+        </a>
+
+        <a href="#parceiros" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-handshake"></i>
+            PARCEIROS
+        </a>
+
+        <a href="#faq" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-circle-question"></i>
+            FAQ
+        </a>
+
+        <a href="#contato" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-envelope"></i>
+            CONTATO
+        </a>
+    </nav>
+
+    <!-- Sidebar móvel, aberta por botão em telas pequenas -->
+    <nav id="mobileSidebar" class="w3-sidebar w3-bar-block w3-animate-left" aria-label="Menu móvel">
+        <button class="w3-bar-item w3-button w3-large" onclick="closeMobileSidebar()" aria-label="Fechar menu">
+            Fechar &times;
+        </button>
+
+        <a href="#home" onclick="closeMobileSidebar()" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-house"></i> HOME
+        </a>
+
+        <a href="#sobre" onclick="closeMobileSidebar()" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-cookie-bite"></i> SOBRE
+        </a>
+
+        <a href="#produtos" onclick="closeMobileSidebar()" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-basket-shopping"></i> PRODUTOS
+        </a>
+
+        <a href="#parceiros" onclick="closeMobileSidebar()" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-handshake"></i> PARCEIROS
+        </a>
+
+        <a href="#faq" onclick="closeMobileSidebar()" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-circle-question"></i> FAQ
+        </a>
+
+        <a href="#contato" onclick="closeMobileSidebar()" class="w3-bar-item w3-button">
+            <i class="fa-solid fa-envelope"></i> CONTATO
+        </a>
+    </nav>
+
+    <!-- Conteúdo principal da OnePage -->
+    <main id="conteudo" class="page-content">
+
+        <!-- ===================== HOME ===================== -->
+        <section id="home" class="section-page section-light fade-in">
+            <!-- Cabeçalho da seção Home -->
+            <header class="section-header">
+                <div class="brand-area">
+                    <!-- essa eu não esqueci, só pra deixar documentado kkkkkk -->
+                    <img src="img/logo.png" alt="Logotipo circular da empresa Brié Cookies" class="brand-logo">
+
+                    <div>
+                        <h1 class="brand-name">Brié Cookies</h1>
+                        <p class="brand-slogan">Cookies artesanais feitos para adoçar momentos especiais.</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Área principal da Home -->
+            <div class="hero-grid">
+                <article class="hero-card">
+                    <h2>Cookies caseiros com sabor de cuidado.</h2>
+
+                    <p>
+                        A <strong>Brié Cookies</strong> é uma empresa criada com uma proposta acolhedora,
+                        moderna e delicada. Nosso objetivo é transformar cookies artesanais em pequenos presentes
+                        de afeto, preparados com ingredientes selecionados, embalagens bonitas e atendimento próximo.
+                    </p>
+
+                    <p>
+                        Cada receita é pensada para entregar uma experiência especial:
+                        massa macia, gotas generosas de chocolate, aroma de forno e aquele sabor que lembra
+                        momentos simples, felizes e compartilhados.
+                    </p>
+
+                    <p class="highlight-text">
+                        Produção artesanal, visual elegante e sabor feito para encantar.
+                    </p>
+
+                    <a href="#produtos" class="button-primary">
+                        Conhecer produtos
+                    </a>
+                </article>
+
+                <figure>
+                    <!-- não esquecer imagem, não esquecer imagem -->
+                    <img src="img/avela.png" alt="Cookies artesanais frescos sobre uma mesa aconchegante" class="hero-image">
+                </figure>
+            </div>
+
+            <div class="content-container w3-padding-32">
+                <h2 class="section-title">Diferenciais da Brié Cookies</h2>
+                <p class="section-subtitle">
+                    A empresa valoriza o processo artesanal, o atendimento humano e a apresentação cuidadosa
+                    dos produtos, criando uma identidade visual delicada e confiável.
+                </p>
+
+                <div class="card-grid">
+                    <article class="custom-card">
+                        <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+                        <h3>Produção artesanal</h3>
+                        <p>
+                            Os cookies são preparados em pequenas fornadas, valorizando o cuidado manual,
+                            a textura e o frescor de cada pedido.
+                        </p>
+                    </article>
+
+                    <article class="custom-card">
+                        <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+                        <h3>Ingredientes selecionados</h3>
+                        <p>
+                            A Brié Cookies prioriza ingredientes de qualidade, buscando equilíbrio entre sabor,
+                            aroma e uma apresentação delicada.
+                        </p>
+                    </article>
+
+                    <article class="custom-card">
+                        <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                        <h3>Embalagens personalizadas</h3>
+                        <p>
+                            Os pedidos podem ser montados em embalagens especiais para presentes,
+                            eventos escolares, datas comemorativas e kits empresariais.
+                        </p>
+                    </article>
+
+                    <article class="custom-card">
+                        <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+                        <h3>Entregas sob encomenda</h3>
+                        <p>
+                            Os pedidos são organizados com antecedência para garantir uma entrega mais cuidadosa,
+                            próxima ao horário combinado.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Rodapé da seção Home -->
+            <footer class="section-footer">
+                <div class="footer-grid">
+                    <div>
+                        <strong>Brié Cookies</strong><br>
+                        E-mail: gabriel.cinfaes20@gmail.com<br>
+                        Telefone: (17) 99999-2026
+                    </div>
+
+                    <div class="social-links" aria-label="Redes sociais">
+                        <a href="https://www.instagram.com/briecookiesof/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Brié Cookies">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="https://wa.me/5517999992026" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Brié Cookies">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Brié Cookies">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+        <!-- ===================== SOBRE ===================== -->
+        <section id="sobre" class="section-page section-white fade-in">
+            <div class="content-container">
+                <h2 class="section-title">Sobre a empresa</h2>
+                <p class="section-subtitle">
+                    A história da Brié Cookies foi criada para representar uma marca artesanal,
+                    próxima do cliente e preocupada com qualidade, identidade visual e experiência de compra.
+                </p>
+
+                <div class="about-grid">
+                    <article class="about-box">
+                        <h3>História</h3>
+                        <p>
+                            A Brié Cookies nasceu da ideia de transformar receitas caseiras em produtos especiais
+                            para presentear e compartilhar. O projeto começou em uma pequena cozinha familiar,
+                            onde cada cookie era preparado com atenção aos detalhes, desde a escolha dos ingredientes
+                            até a embalagem final.
+                        </p>
+
+                        <p>
+                            Com o crescimento da procura por doces artesanais, a empresa passou a atender encomendas
+                            para aniversários, cafés, eventos escolares e kits personalizados. Mesmo como empresa fictícia,
+                            sua identidade foi construída com foco em carinho, confiança e sofisticação simples.
+                        </p>
+                    </article>
+
+                    <article class="about-box">
+                        <h3>Missão</h3>
+                        <p>
+                            Produzir cookies artesanais frescos, saborosos e bem apresentados, oferecendo ao cliente
+                            uma experiência acolhedora, delicada e memorável.
+                        </p>
+
+                        <h3>Valores</h3>
+                        <ul class="values-list">
+                            <li>Qualidade na escolha dos ingredientes.</li>
+                            <li>Atendimento próximo, educado e cuidadoso.</li>
+                            <li>Valorização do processo artesanal.</li>
+                            <li>Capricho na apresentação e nas embalagens.</li>
+                            <li>Compromisso com organização, higiene e confiança.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PRODUTOS ===================== -->
+        <section id="produtos" class="section-page section-beige fade-in">
+            <div class="content-container">
+                <h2 class="section-title">Produtos em destaque</h2>
+                <p class="section-subtitle">
+                    Conheça alguns sabores fictícios da Brié Cookies. As imagens devem ser inseridas na pasta
+                    <strong>imagens</strong>, conforme os nomes indicados no projeto.
+                </p>
+
+                <div class="product-grid">
+                    <article class="product-card">
+                        <!-- Não esqueça de adicionar as imagens, eu mesmo :p -->
+                        <img src="img/cookiechoco.png" alt="Cookie artesanal de chocolate com gotas de chocolate">
+
+                        <div class="product-info">
+                            <h3>Cookie de Chocolate</h3>
+                            <p>
+                                Massa macia com sabor intenso de chocolate e gotas generosas,
+                                ideal para quem gosta de um doce marcante.
+                            </p>
+                            <span class="tag">Mais vendido</span>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <!-- Insira a imagem cookie-baunilha.jpg dentro da pasta imagens -->
+                        <img src="img/cookiebau.png" alt="Cookie artesanal de baunilha com textura macia">
+
+                        <div class="product-info">
+                            <h3>Cookie de Baunilha</h3>
+                            <p>
+                                Receita delicada com aroma suave de baunilha, indicada para cafés,
+                                presentes e combinações com bebidas quentes.
+                            </p>
+                            <span class="tag">Sabor delicado</span>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <!-- A imagem principal também pode ser reaproveitada caso o aluno ainda não tenha outra foto -->
+                        <img src="img/cookie-principal.png" alt="Seleção de cookies artesanais em embalagem especial">
+
+                        <div class="product-info">
+                            <h3>Kit Presente</h3>
+                            <p>
+                                Combinação de cookies em embalagem personalizada, pensada para aniversários,
+                                datas comemorativas e lembranças especiais.
+                            </p>
+                            <span class="tag">Personalizável</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PARCEIROS ===================== -->
+        <section id="parceiros" class="section-page section-white fade-in">
+            <!-- Cabeçalho da seção Parceiros -->
+            <header class="section-header">
+                <div class="brand-area">
+                    <!-- Insira a imagem logo-brie-cookies.png dentro da pasta imagens -->
+                    <img src="img/logo.png" alt="Logotipo da Brié Cookies na seção de parceiros" class="brand-logo">
+
+                    <div>
+                        <h2 class="brand-name">Brié Cookies</h2>
+                        <p class="brand-slogan">Cookies artesanais feitos para adoçar momentos especiais.</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Área principal da seção Parceiros -->
+            <div class="content-container">
+                <h2 class="section-title">Parceiros</h2>
+                <p class="section-subtitle">
+                    A Brié Cookies conta com parceiros que fortalecem a qualidade dos ingredientes,
+                    a presença em pontos de venda e a entrega dos pedidos na cidade.
+                </p>
+
+                <div class="partners-grid">
+                    <article class="custom-card w3-center">
+                        <!-- Insira a imagem parceiro-mercado.png dentro da pasta imagens -->
+                        <img src="img/mercadoparc.png" alt="Logotipo fictício do mercado parceiro" class="partner-logo">
+
+                        <h3>Mercado local</h3>
+                        <p>
+                            Parceiro responsável por fornecer ingredientes selecionados, como chocolate,
+                            farinha, açúcar mascavo e produtos utilizados nas receitas artesanais.
+                        </p>
+                    </article>
+
+                    <article class="custom-card w3-center">
+                        <!-- Insira a imagem parceiro-cafe.png dentro da pasta imagens -->
+                        <img src="img/cafeteriaparc.png" alt="Logotipo fictício da cafeteria parceira" class="partner-logo">
+
+                        <h3>Cafeteria parceira</h3>
+                        <p>
+                            Espaço que comercializa alguns sabores da Brié Cookies, combinando os cookies
+                            com cafés, cappuccinos e bebidas especiais.
+                        </p>
+                    </article>
+
+                    <article class="custom-card w3-center">
+                        <!-- Insira a imagem parceiro-delivery.png dentro da pasta imagens -->
+                        <img src="img/entregasparc.png" alt="Logotipo fictício do serviço de delivery parceiro" class="partner-logo">
+
+                        <h3>Delivery parceiro</h3>
+                        <p>
+                            Serviço de entrega utilizado para levar os pedidos até os clientes,
+                            mantendo organização, pontualidade e cuidado no transporte.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Rodapé da seção Parceiros -->
+            <footer class="section-footer">
+                <div class="footer-grid">
+                    <div>
+                        <strong>Brié Cookies</strong><br>
+                        E-mail: gabriel.cinfaes20@gmail.com<br>
+                        Telefone: (17) 99999-2026
+                    </div>
+
+                    <div class="social-links" aria-label="Redes sociais">
+                        <a href="https://www.instagram.com/briecookiesof/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Brié Cookies">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="https://wa.me/5517999992026" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Brié Cookies">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Brié Cookies">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+        <!-- ===================== FAQ ===================== -->
+        <section id="faq" class="section-page section-beige fade-in">
+            <!-- Cabeçalho da seção FAQ -->
+            <header class="section-header">
+                <div class="brand-area">
+                    <!-- Não esquecer de insirir a imagem (porque eu geralmente esqueço) -->
+                    <img src="img/logo.png" alt="Logotipo da Brié Cookies na seção de perguntas frequentes" class="brand-logo">
+
+                    <div>
+                        <h2 class="brand-name">Brié Cookies</h2>
+                        <p class="brand-slogan">Cookies artesanais feitos para adoçar momentos especiais.</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Área principal da seção FAQ -->
+            <div class="content-container">
+                <h2 class="section-title w3-center">Perguntas frequentes</h2>
+                <p class="section-subtitle w3-center" style="margin-left: auto; margin-right: auto;">
+                    Confira algumas dúvidas comuns sobre os produtos, encomendas, embalagens e entregas da Brié Cookies.
+                </p>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>1. Os cookies são feitos no mesmo dia?</summary>
+                        <p>
+                            Sim. A Brié Cookies trabalha com produção artesanal e busca preparar os pedidos
+                            sempre próximos ao horário de entrega ou retirada.
+                        </p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>2. A empresa aceita encomendas para festas?</summary>
+                        <p>
+                            Sim. Aceitamos encomendas personalizadas para aniversários, eventos escolares,
+                            empresas e datas comemorativas.
+                        </p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>3. Existem opções sem chocolate?</summary>
+                        <p>
+                            Sim. A empresa pode oferecer sabores como baunilha, canela, castanhas
+                            e cookies recheados com creme.
+                        </p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>4. Como faço um pedido?</summary>
+                        <p>
+                            O cliente pode entrar em contato pelo WhatsApp, Instagram ou e-mail comercial
+                            para consultar sabores, valores fictícios e disponibilidade de entrega.
+                        </p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>5. A Brié Cookies faz entregas?</summary>
+                        <p>
+                            Sim. As entregas podem ser feitas por parceiros de delivery ou por retirada
+                            combinada previamente com o cliente.
+                        </p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>6. Os produtos possuem embalagem personalizada?</summary>
+                        <p>
+                            Sim. A empresa oferece embalagens especiais para presentes, eventos
+                            e kits personalizados.
+                        </p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Rodapé da seção FAQ -->
+            <footer class="section-footer">
+                <div class="footer-grid">
+                    <div>
+                        <strong>Brié Cookies</strong><br>
+                        E-mail: gabriel.cinfaes20@gmail.com<br>
+                        Telefone: (17) 99999-2026
+                    </div>
+
+                    <div class="social-links" aria-label="Redes sociais">
+                        <a href="https://www.instagram.com/briecookiesof/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Brié Cookies">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="https://wa.me/5517999992026" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Brié Cookies">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Brié Cookies">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+        <!-- ===================== CONTATO ===================== -->
+        <section id="contato" class="section-page section-white fade-in">
+            <div class="content-container">
+                <h2 class="section-title">Contato</h2>
+                <p class="section-subtitle">
+                    Esta seção reforça os canais comerciais da empresa, facilitando o acesso do usuário
+                    às informações principais.
+                </p>
+
+                <div class="contact-box">
+                    <h3>Fale com a Brié Cookies</h3>
+
+                    <p>
+                        Para encomendas, dúvidas ou sugestões, entre em contato pelos canais abaixo:
+                    </p>
+
+                    <p>
+                        <strong>E-mail:</strong>
+                        <a href="gabriel.cinfaes20@gmail.com">gabriel.cinfaes20@gmail.com</a>
+                    </p>
+
+                    <p>
+                        <strong>Telefone:</strong>
+                        <a href="tel:+5517999992026">(17) 99999-2026</a>
+                    </p>
+
+                    <p>
+                        <strong>Redes sociais:</strong>
+                    </p>
+
+                    <div class="social-links" aria-label="Redes sociais da Brié Cookies">
+                        <a href="https://www.instagram.com/briecookiesof/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="https://wa.me/5517999992026" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript simples apenas para abrir e fechar o menu móvel :p -->
+    <script>
+        function openMobileSidebar() {
+            document.getElementById("mobileSidebar").style.display = "block";
+        }
+
+        function closeMobileSidebar() {
+            document.getElementById("mobileSidebar").style.display = "none";
+        }
+    </script>
+</body>
+</html>
